@@ -32,7 +32,7 @@ export default function RevenueChart() {
           <YAxis tick={{ fontSize: 12, fill: "#9ca3af" }} axisLine={false} tickLine={false} tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`} />
           <Tooltip
             contentStyle={{ borderRadius: "12px", border: "1px solid #e5e7eb", fontSize: "13px" }}
-            formatter={(value: number) => `$${value.toLocaleString()}`}
+            formatter={(value) => typeof value === "number" ? `$${value.toLocaleString()}` : value}
           />
           <Legend />
           <Area type="monotone" dataKey="revenue" stroke="#7c3aed" strokeWidth={2} fill="url(#colorRevenue)" name="Revenue" />
